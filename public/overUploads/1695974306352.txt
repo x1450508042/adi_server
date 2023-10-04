@@ -1,0 +1,67 @@
+-------------------------------------
+当在仓库添加时
+git add .
+
+git commit -m "随便敲敲"
+
+git push -u origin 分支名
+
+-----------------------------------------
+#检查分支
+git branch
+
+#创建并切换分支 (dev)
+git chechout -b dev
+
+#创建分支 
+git branch “创建的分支名”
+
+#切换分支 
+git checkout “分支名”
+
+#查看分支 
+git branch -v
+
+合并分支 merge     git merge "分支名"
+-----------------------------------------
+git --verstion  查看git版本号
+
+clear 清屏
+
+设置签名 ：
+
+用户名 和邮箱  git config --global user.name “zhaoss”；  git config --global user.email “123@.com”；
+
+本地仓库的初始化  git init
+
+查看文件夹里面的内容 ll
+查看文件夹 ll -la
+
+添加文件：add  "git add '文件名'"     提交文件：commit   "git commit -m "注释内容" ‘文件名’"；
+
+git status 看的是工作区和暂存区的状态
+
+git log 查看提交的日志    或者 git log --pretty=oneline   或者 git log --oneline    或者 git reflog
+
+reset 前进或者后退历史版本   ！！找回本地库被删除的文件可以使用 reset来恢复
+
+  git reset --hard "索引"  本地库的指针移动的同时，重置暂存区与工作区
+
+ “ git reset --mixed "索引"  本地库的指针移动的同时，重置暂存区但是工作区不动  这种方法不常用
+  git reset --soft "索引" 本地库的指针移动的时候，暂存区和工作区都不动   这种也不常用 ” 
+
+rm "文件名"  删除工作区的文件
+将删除同步到暂存区 git add “ 0文件名”
+将删除同步到本地储存区 git commit -m “注释” “文件名”
+
+diff 对比工作区和暂存区的文件    git diff “文件名” 或者 多个文件的比对直接用 git diff
+
+创建分支 git branch “创建的分支名”
+切换分支 git checkout “分支名”
+查看分支 git branch -v
+
+合并分支 merge     git merge "分支名"
+
+查看别名 git remote -v
+创建别名 git remote add “别名名称”“github生成的地址”
+克隆 git clone "github地址"

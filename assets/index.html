@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <label for="account">账号</label>
+    <input
+      type="text"
+      value="admin"
+      name="account"
+      id="username"
+      placeholder="请输入账号"
+    />
+    <br /><br />
+    <label for="pwd">密码</label>
+    <input
+      type="password"
+      value="123456"
+      name="pwd"
+      id="password"
+      placeholder="请输入密码"
+    />
+    <br /><br />
+    <button id="btn">登录/注册</button>
+    <span>token:</span>
+    <div id="show"></div>
+  </body>
+</html>
+<script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.min.js"></script>
+<script>
+  // 注册逻辑
+  // let username = document.getElementById("username");
+  // let password = document.getElementById("password");
+  // let btn = document.getElementById("btn");
+  // // 2.绑定事件
+  // btn.onclick = function () {
+  //   // 3.获取用户输入的值
+  //   let usernameValue = username.value;
+  //   let passwordValue = password.value;
+  //   // 4.发送请求
+  //   axios
+  //     .post("http://127.0.0.1:3000/reg", {
+  //       username: usernameValue,
+  //       password: passwordValue,
+  //     })
+  //     .then(function (res) {
+  //       console.log(res);
+  //     })
+  //     .catch(function (err) {
+  //       console.log(err);
+  //     });
+  // };
+
+  // 登录
+  let username = document.getElementById("username");
+  let password = document.getElementById("password");
+  let btn = document.getElementById("btn");
+  let show = document.getElementById("show");
+  // 2.绑定事件
+  btn.onclick = function () {
+    // 3.获取用户输入的值
+    let usernameValue = username.value;
+    let passwordValue = password.value;
+    // 4.发送请求
+    axios
+      .post("http://127.0.0.1:4143/login", {
+        username: usernameValue,
+        password: passwordValue,
+      })
+      .then(function (res) {
+        if (res.data.code === 200) {
+          console.log(res.data.data.token);
+          show.innerHTML = res.data.data.token;
+        }
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
+  };
+</script>
